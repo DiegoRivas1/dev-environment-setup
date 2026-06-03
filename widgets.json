@@ -1,0 +1,41 @@
+{
+  "widget@ssh-aws-emr-lab": {
+    "display:order": 7,
+    "icon": "server",
+    "label": "EMR Master",
+    "color": "#FF9900",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "shell",
+        "connection": "aws-emr-lab"
+      }
+    }
+  },
+  "widget@ssh-aws-onpe": {
+    "display:order": 6,
+    "icon": "server",
+    "label": "AWS EC2",
+    "color": "#ff9900",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "shell",
+        "connection": "aws-onpe"
+      }
+    }
+  },
+  "widget@ssh-kali": {
+    "display:order": 5,
+    "icon": "laptop",
+    "label": "Kali Linux",
+    "color": "#557C94",
+    "blockdef": {
+      "meta": {
+        "view": "term",
+        "controller": "shell",
+        "connection": "noname-kali"
+      }
+    }
+  }
+}

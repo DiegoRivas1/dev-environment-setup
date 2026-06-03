@@ -1,0 +1,14 @@
+{
+  "noname@192.168.56.101": {
+    "conn:wshenabled": true
+  },
+  "wsl://Ubuntu": {
+    "conn:wshenabled": false
+  },
+  "aws-emr-lab": {
+    "conn:wshenabled": true
+  },
+  "aws-onpe": {
+    "conn:wshenabled": true
+  }
+}

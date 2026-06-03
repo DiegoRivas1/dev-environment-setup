@@ -1,0 +1,21 @@
+# Ejemplo de configuracion ~/.ssh/config
+# Copiar a C:\Users\TU_USUARIO\.ssh\config (Windows)
+# o a ~/.ssh/config (Linux/Mac)
+
+# EMR Lab - Amazon EMR master node
+Host aws-emr-lab
+    HostName <DNS-del-master>
+    User hadoop
+    IdentityFile C:/Users/TU_USUARIO/Documents/labsuser.pem
+
+# AWS EC2 general
+Host aws-onpe
+    HostName <IP-publica>
+    User ec2-user
+    IdentityFile C:/Users/TU_USUARIO/Documents/onpe.pem
+
+# Kali Linux VM (VirtualBox)
+Host noname-kali
+    HostName 192.168.56.101
+    User noname
+    IdentityFile C:/Users/TU_USUARIO/.ssh/id_rsa
