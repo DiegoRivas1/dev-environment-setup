@@ -49,6 +49,11 @@ ssh-keygen -t rsa -b 4096
 type $env:USERPROFILE\.ssh\id_rsa.pub | ssh noname@192.168.56.101 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
 
+**Nota AWS vs Linux manual:**
+En AWS la clave pública ya está configurada automáticamente en la instancia al crearla
+con un key pair. Solo necesitas el `.pem` para conectarte. En máquinas Linux propias
+(como Kali VM) debes copiar tu clave pública manualmente como se muestra arriba.
+
 ### 2. Crear el archivo config
 
 ```powershell
@@ -98,6 +103,7 @@ ssh -i id_rsa noname@<IP-kali>
 
 ### 4. Copiar archivos (SCP)
 
+Configuracion por defecto con alias, sin especificar ruta (va al home del usuario en el servidor (~/) ):
 ```powershell
 # Subir archivo al master
 scp archivo.txt aws-emr-lab:~/
@@ -107,6 +113,14 @@ scp aws-emr-lab:~/archivo.txt .
 
 # Subir script HiveQL
 scp scripts/02_wordcount.hql aws-emr-lab:~/
+```
+Configuracion especificando ruta completa:
+```powershell
+# Subir archivo a ruta especifica
+scp archivo.txt aws-emr-lab:/mnt/datos/
+
+# Descargar archivo a ruta especifica
+scp aws-emr-lab:~/archivo.txt "C:\Users\TU_USUARIO\Downloads\"
 ```
 
 > El alias SSH funciona igual desde terminal tradicional y desde Wave.
@@ -208,6 +222,13 @@ wsh setconfig waveai:defaultmode="groq-llama"
 Documentación: https://docs.waveterm.dev/waveai-modes
 
 > Para automatización avanzada con Wave AI (generar archivos desde el terminal y enviarlos a sesiones SSH remotas) ver: https://github.com/DiegoRivas1/wave-bridge
+
+---
+
+## Próximamente
+
+- **wave-config** Una configuración completa de Wave: temas, backgrounds, fuentes y diseño paso a paso.
+- **wave-bridge** Una automatización con Wave AI para crear y enviar archivos a sesiones SSH remotas. Wave AI actualmente puede generar archivos en tu PC local pero no ejecutarlos ni crearlos directamente en una sesión remota, wave-bridge resuelve eso.
 
 ---
 
